@@ -16,6 +16,6 @@ On first load, the application will request you for permission to access your br
 
 The application also allows you to easily toggle temperature units between Celsius and Fahrenheit. When toggled, you'll notice that the chart re-renders and animates the temperature column back in.
 
-Lastly, the application also stores and renders the users 3 most recent searches. This is a config value that can easily be adjuested. The searches are also stored in browser `localStorage` so that the searches persist across page refreshes.
+Lastly, the application also stores and renders the users 3 most recent searches. This is a config value that can easily be adjusted. The searches are also stored in browser `localStorage` so that the searches persist across page refreshes.
 
 Cheers!
