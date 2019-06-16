@@ -1,24 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
+import AppContainer from './components/AppContainer';
 import './App.css';
+
+const config = Object.freeze({
+  firstVisitResults: 'firstVisitResults',
+  apiKey: '2331fa1c07dd986b1274210bf14812bb',
+  hostName: 'https://api.openweathermap.org/data/2.5/forecast',
+  tempUnits: {
+    celsius: 'celsius',
+    fahrenheit: 'fahrenheit',
+  },
+  searchHistoryLimit: 3,
+  searchHistory: 'searchHistory',
+});
+
+// dont attempt to auto-query location if the browser doesnt support geolocation
+const firstVisit = ("geolocation" in navigator) && !(localStorage.getItem(config.firstVisitResults));
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="App-header">
+        <h1>Weather Searcher</h1>
+        <AppContainer
+          config={config}
+          firstVisit={firstVisit}
+        />
+      </div>
     </div>
   );
 }
