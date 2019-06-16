@@ -30,7 +30,7 @@ export default class AppContainer extends Component {
         this.fetchWeather({
           lat: position.coords.latitude.toFixed(2),
           lon: position.coords.longitude.toFixed(2),
-        }).then(() => {localStorage.setItem(config.firstVisitResults, JSON.stringify(this.state.results))});
+        }, {searchTerm: undefined}).then(() => {localStorage.setItem(config.firstVisitResults, JSON.stringify(this.state.results))});
       });
     }
   }
@@ -66,7 +66,11 @@ export default class AppContainer extends Component {
       })
       this.setLoading(false)
     }).then(
-      () => this.updateSearchHistory({ searchTerm })
+      () => {
+        if (searchTerm) {
+          this.updateSearchHistory({ searchTerm })
+        }
+      }
     ).catch(
       (err) => this.handleError(err.response.data.message)
     ); 
