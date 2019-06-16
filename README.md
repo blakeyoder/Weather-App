@@ -3,6 +3,7 @@
 ### Getting Started
 ```
 $ git clone git@github.com:blakeyoder/Weather-App.git
+$ cd Weather-App
 $ yarn install && yarn run start
 ```
 
